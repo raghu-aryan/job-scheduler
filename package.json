@@ -1,0 +1,17 @@
+{
+  "name": "apconic",
+  "version": "1.0.0",
+  "description": "This is my learning project at Apconic",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Apconic",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
