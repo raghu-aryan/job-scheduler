@@ -1,20 +1,16 @@
 //import express from 'express';
 import express, { Request, Response } from "express";
 import { User } from '../entitties/User';
-import { getManager, getRepository, getConnection } from "typeorm"; 
+import { getManager, getConnection } from "typeorm"; 
 const router = express.Router();
 
 router.get('/users', async (req, res) => {
     var users = await getManager().find(User);
-    res.json({status: true, data: users});
+    users.length > 0 ? res.json({'status': true, 'message': "Record found successfully.", 'data': users}) : res.json({'status': false, 'message': 'Record not found', 'data': []})
 });
 
 //req: Request, res: Response
 router.post('/users', async (req: Request, res: Response) => {
-    console.log(req.body);
-    //var users = await getManager().find(User);
-    //res.json({status: true, data: users});
-
     let resp = await getConnection().createQueryBuilder().insert().into(User).values([
             { email: req.body.email},
         ])

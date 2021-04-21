@@ -1,4 +1,5 @@
-const auth = require('./auth');
+const auth = require('./auth'); 
+
 
 module.exports.send_email = (email, subject, message) => {
     const transporter = auth.transporter;
