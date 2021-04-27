@@ -1,20 +1,20 @@
 const auth = require('./auth'); 
 
 
-module.exports.send_email = (email, subject, message) => {
+export const send_email = (email: String, subject: String, message: String) => {
     const transporter = auth.transporter;
     var mailOptions = {
-        from: 'raguveer.bhopaly@gmail.com',
+        from: 'er.raghuaryan@gmail.com',
         to: email,
         subject: subject,
         html: message,
     };
-    transporter.sendMail(mailOptions, function (error, info) {
+    transporter.sendMail(mailOptions, function (error: [], info: []) {
         if (error) {
             console.log(error);
             return false
         } else {
-            console.log('Email sent: ' + info.response);
+            console.log('Email sent: ');
             return true;
         }
     });
