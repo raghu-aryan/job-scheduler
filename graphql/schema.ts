@@ -2,24 +2,16 @@ import { buildSchema } from 'graphql'
 
 const schema = buildSchema(`
     type Query {
-        users: [User]!
-        user(email: String!): [User]!
+        emails: [Email]!
+        email(id: ID!): [Email]!
     }
-    type User {
+    type Email {
         id: ID!
         email: String!
     }
     type Mutation {
-        addUser(email: String!):[AddUser]!
-        removeUser(id: ID!):[RemoveUser]!
-    }
-    type AddUser {
-        email: String!
-        message: String!
-    }
-    type RemoveUser {
-        id: ID!
-        message: String!
+        addEmail(email: String!):[Email]!
+        removeEmail(id: ID!):[Email]!
     }
 `);
 export { schema }

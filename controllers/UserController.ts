@@ -1,4 +1,4 @@
-import { User } from '../entitties/User';
+import Email from '../entitties/email';
 import { getConnection } from 'typeorm';
 
 export class UserController {
@@ -8,12 +8,12 @@ export class UserController {
         // let const {
         //     email: email
         // }
-        //let resp = await getConnection().createQueryBuilder().insert().into(User).values({ email: email }).execute();
+        //let resp = await getConnection().createQueryBuilder().insert().into(EmailRegistration).values({ email: email }).execute();
         
     }
 
     async allUsers  () {
-        const users =  await getConnection().getRepository(User).find();
+        const users =  await getConnection().getRepository(Email).find();
         return users
     }
 }

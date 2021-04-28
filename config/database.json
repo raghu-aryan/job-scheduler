@@ -8,6 +8,6 @@
     "synchronize": true,
     "logging": true,
     "entities": [
-        "entitties/User.ts"
+        "entitties/email.ts"
     ]
 }

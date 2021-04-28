@@ -1,14 +1,10 @@
-import { User } from '../entitties/User';
+import Email from '../entitties/email';
 import { getManager } from "typeorm";
 import { send_email } from './mail';
 
 export const SendJobSchedule = async () => {
-    var users = await getManager().find(User);
-    var mailiedUsers:String[] = [] 
+    var users = await getManager().find(Email, { sentMail: false })
     users.forEach(function (user) {
-        if(!mailiedUsers.includes(user.email)) {
-            mailiedUsers.push(user.email)
-            send_email(user.email, 'Welcome', 'Welcome to Apconic');
-        }
+        send_email(user.email, 'Welcome', 'Welcome to Apconic', user.id);
     });
 };

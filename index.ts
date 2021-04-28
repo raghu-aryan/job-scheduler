@@ -2,7 +2,7 @@ import express from "express"
 import { graphqlHTTP } from 'express-graphql'
 import { createConnection } from "typeorm"
 import { schema } from './graphql/schema'
-import { root } from './graphql/root'
+import { resolver } from './graphql/resolver'
 import bodyParser from "body-parser"
 import { SendJobSchedule } from './config/jobmail'
 const databaseDetail = require('./config/database');
@@ -20,7 +20,7 @@ schedule.scheduleJob('*/20 * * * * *', function () {
 createConnection(databaseDetail);
 app.use('/graphql', graphqlHTTP({
     schema: schema,
-    rootValue: root,
+    rootValue: resolver,
     graphiql: true,
 }));
 app.listen(4000);
